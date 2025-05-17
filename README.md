@@ -1,0 +1,63 @@
+# AI Glow
+
+A Flutter package that brings the latest AI-driven glow effects to your widgets, inspired by Apple Intelligence and Google’s Gemini AI. 
+
+## Key Highlights
+
+- **Adaptive Inner Glow**: Uses on-device AI to adjust inner glow intensity based on widget content and user interaction patterns.
+- **Contextual Outer Glow**: Powered by Apple Intelligence, dynamically tunes glow radius and blur for different UI environments.
+- **AI-Enhanced Color Cycling**: Integrates Google Gemini’s neural color generation to create smooth, evolving color gradients.
+- **Performance-Optimized**: All glow computations run efficiently on-device, preserving battery life and app responsiveness.
+- **Customizable Parameters**: Full control over glow width, blur, border radius, and color palettes, with AI-driven defaults.
+
+## Installation
+
+Add this to your package's `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  ai_glow: ^1.0.0
+```
+
+## Usage Examples
+
+### Adaptive Inner Glow
+
+```dart
+InnerAiGlowing(
+  child: YourWidget(),
+  height: 200,
+  width: 200,
+  borderRadius: 15,
+  glowWidth: 3,
+  blure: 8,
+  colors: [Colors.blue, Colors.purple, Colors.pink],
+  aiMode: AiMode.adaptive, // enables on-device AI adjustments
+)
+```
+
+### Contextual Outer Glow
+
+```dart
+OuterAiGlow(
+  child: YourWidget(),
+  height: 200,
+  width: 200,
+  borderRadius: 15,
+  glowWidth: 3,
+  blure: 8,
+  colors: [Colors.cyan, Colors.indigo, Colors.teal],
+  aiMode: AiMode.contextual, // uses Apple Intelligence for glow tuning
+)
+```
+
+
+## License
+
+MIT License
+
+---
+
+## About the Author
+
+Hi, I'm Ahmed Douss, a Flutter developer passionate about blending AI with UI/UX. With extensive experience in building interactive mobile apps and integrating cutting-edge AI features, I created AI Glow to help developers elevate their Flutter interfaces. Feel free to connect on GitHub and share your feedback!
