@@ -2,6 +2,8 @@
 
 A Flutter package that brings the latest AI-driven glow effects to your widgets, inspired by Apple Intelligence and Google’s Gemini AI. 
 
+<img width="2509" alt="ss" src="https://github.com/user-attachments/assets/6d4d17bd-93e3-42bb-9849-4c1427191392" />
+
 ## Key Highlights
 
 - **Adaptive Inner Glow**: Uses on-device AI to adjust inner glow intensity based on widget content and user interaction patterns.
@@ -9,6 +11,8 @@ A Flutter package that brings the latest AI-driven glow effects to your widgets,
 - **AI-Enhanced Color Cycling**: Integrates Google Gemini’s neural color generation to create smooth, evolving color gradients.
 - **Performance-Optimized**: All glow computations run efficiently on-device, preserving battery life and app responsiveness.
 - **Customizable Parameters**: Full control over glow width, blur, border radius, and color palettes, with AI-driven defaults.
+
+
 
 ## Installation
 
