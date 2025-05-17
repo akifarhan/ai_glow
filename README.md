@@ -12,6 +12,7 @@ A Flutter package that brings the latest AI-driven glow effects to your widgets,
 - **Performance-Optimized**: All glow computations run efficiently on-device, preserving battery life and app responsiveness.
 - **Customizable Parameters**: Full control over glow width, blur, border radius, and color palettes, with AI-driven defaults.
 
+
 ![ezgif-36fea2086ad973](https://github.com/user-attachments/assets/8598235f-d9dc-443c-993f-df90a400c67c)
 
 
