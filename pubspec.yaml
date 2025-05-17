@@ -1,7 +1,7 @@
 name: ai_glow
 description: "A new Flutter package project."
 version: 0.0.1
-homepage:
+homepage: https://github.com/ahmeddouss/ai_glow.git
 
 environment:
   sdk: ^3.7.2
