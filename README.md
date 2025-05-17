@@ -67,3 +67,11 @@ MIT License
 ## About the Author
 
 Hi, I'm Ahmed Douss, a Flutter developer passionate about blending AI with UI/UX. With extensive experience in building interactive mobile apps and integrating cutting-edge AI features, I created AI Glow to help developers elevate their Flutter interfaces. Feel free to connect on GitHub and share your feedback!
+
+---
+
+## ☕ Buy Me a Coffee
+
+If you find this package helpful, consider supporting my work:
+
+[![Buy Me a Coffee](https://revolut.me/adouss94)
