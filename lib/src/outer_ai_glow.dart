@@ -1,16 +1,62 @@
 import 'dart:math';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 
+/// A widget that paints an animated, colorful glow around its [child].
+///
+/// The glow is rendered outside the child's bounds using a rotating
+/// sweep gradient. Customize the visual appearance with [colors],
+/// [glowWidth], [blur], [borderRadius] and the overall [width]/[height].
+///
+/// Example:
+///
+/// ```dart
+/// OuterAiGlow(
+///   width: 120,
+///   height: 120,
+///   borderRadius: 16,
+///   colors: [Colors.cyan, Colors.indigo, Colors.pink],
+///   child: Icon(Icons.star, size: 48),
+/// )
+/// ```
 class OuterAiGlow extends StatefulWidget {
+  /// The widget that will appear centered inside the glowing area.
   final Widget child;
+
+  /// The height of the square that contains the child and the glow.
+  ///
+  /// Defaults to `100`.
   final double height;
+
+  /// The width of the square that contains the child and the glow.
+  ///
+  /// Defaults to `100`.
   final double width;
+
+  /// The corner radius applied to the rounded rectangle used for the glow.
+  ///
+  /// Defaults to `10`.
   final double borderRadius;
+
+  /// The stroke width of the glowing ring.
+  ///
+  /// Larger values create a thicker glow. Defaults to `2`.
   final double glowWidth;
-  final double blure;
+
+  /// The blur sigma applied to the glow's mask filter. Higher values make
+  /// the glow softer. Defaults to `5`.
+  final double blur;
+
+  /// Colors used for the rotating sweep gradient. The gradient will cycle
+  /// through the provided colors; the first color is appended to the end to
+  /// create a smooth rotation loop.
+  ///
+  /// Defaults to `[Colors.blue, Colors.purple, Colors.pink]`.
   final List<Color> colors;
 
+  /// Creates an [OuterAiGlow].
+  ///
+  /// The [child] parameter is required. All other parameters are optional
+  /// and have sensible defaults for immediate use.
   const OuterAiGlow({
     super.key,
     required this.child,
@@ -18,7 +64,7 @@ class OuterAiGlow extends StatefulWidget {
     this.width = 100,
     this.borderRadius = 10,
     this.glowWidth = 2,
-    this.blure = 5,
+    this.blur = 5,
     this.colors = const [Colors.blue, Colors.purple, Colors.pink],
   });
 
@@ -26,17 +72,13 @@ class OuterAiGlow extends StatefulWidget {
   State<OuterAiGlow> createState() => _OuterAiGlowState();
 }
 
-class _OuterAiGlowState extends State<OuterAiGlow>
-    with SingleTickerProviderStateMixin {
+class _OuterAiGlowState extends State<OuterAiGlow> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      duration: const Duration(seconds: 4),
-      vsync: this,
-    )..repeat();
+    _controller = AnimationController(duration: const Duration(seconds: 4), vsync: this)..repeat();
   }
 
   @override
@@ -62,10 +104,9 @@ class _OuterAiGlowState extends State<OuterAiGlow>
                     colors: widget.colors,
                     borderRadius: widget.borderRadius,
                     glowWidth: widget.glowWidth,
-                    blure: widget.blure,
+                    blure: widget.blur,
                   ),
-                  child:
-                      const SizedBox.expand(), // Ensures the glow fills the space
+                  child: const SizedBox.expand(), // Ensures the glow fills the space
                 ),
           ),
           widget.child,
@@ -94,10 +135,7 @@ class _GlowPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final rect = Offset.zero & size;
 
-    final RRect roundedRect = RRect.fromRectAndRadius(
-      rect,
-      Radius.circular(borderRadius),
-    );
+    final RRect roundedRect = RRect.fromRectAndRadius(rect, Radius.circular(borderRadius));
 
     final stops = List.generate(colors.length + 1, (i) => i / (colors.length));
 

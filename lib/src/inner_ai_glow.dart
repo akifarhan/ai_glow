@@ -1,15 +1,60 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
+/// A widget that paints an animated, colorful glow inside its [child].
+///
+/// Unlike [OuterAiGlow], which draws the glow outside the child's bounds,
+/// [InnerAiGlowing] clips the content and paints the animated sweep gradient
+/// on top of the child so the glow appears to emanate from within.
+///
+/// Example:
+///
+/// ```dart
+/// InnerAiGlowing(
+///   width: 140,
+///   height: 140,
+///   borderRadius: 20,
+///   colors: [Colors.orange, Colors.red, Colors.deepPurple],
+///   child: Image.asset('avatar.png'),
+/// )
+/// ```
 class InnerAiGlowing extends StatefulWidget {
+  /// The widget that will be displayed and receive the inner glow overlay.
   final Widget child;
+
+  /// The height of the square that contains the child and the glow.
+  ///
+  /// Defaults to `100`.
   final double height;
+
+  /// The width of the square that contains the child and the glow.
+  ///
+  /// Defaults to `100`.
   final double width;
+
+  /// The corner radius applied when clipping the child and drawing the glow.
+  ///
+  /// Defaults to `10`.
   final double borderRadius;
+
+  /// The stroke width of the glowing ring painted on top of the child.
+  ///
+  /// Defaults to `2`.
   final double glowWidth;
-  final double blure;
+
+  /// The blur sigma applied to the glow. Larger values produce a softer glow.
+  /// Defaults to `5`.
+  final double blur;
+
+  /// Colors used by the rotating sweep gradient.
+  ///
+  /// Defaults to `[Colors.blue, Colors.purple, Colors.pink]`.
   final List<Color> colors;
 
+  /// Creates an [InnerAiGlowing].
+  ///
+  /// The [child] is required. Other parameters are optional and have
+  /// defaults for quick usage.
   const InnerAiGlowing({
     super.key,
     required this.child,
@@ -17,7 +62,7 @@ class InnerAiGlowing extends StatefulWidget {
     this.width = 100,
     this.borderRadius = 10,
     this.glowWidth = 2,
-    this.blure = 5,
+    this.blur = 5,
     this.colors = const [Colors.blue, Colors.purple, Colors.pink],
   });
 
@@ -25,17 +70,13 @@ class InnerAiGlowing extends StatefulWidget {
   State<InnerAiGlowing> createState() => _InnerAiGlowingState();
 }
 
-class _InnerAiGlowingState extends State<InnerAiGlowing>
-    with SingleTickerProviderStateMixin {
+class _InnerAiGlowingState extends State<InnerAiGlowing> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      duration: const Duration(seconds: 4),
-      vsync: this,
-    )..repeat();
+    _controller = AnimationController(duration: const Duration(seconds: 4), vsync: this)..repeat();
   }
 
   @override
@@ -64,7 +105,7 @@ class _InnerAiGlowingState extends State<InnerAiGlowing>
                       colors: widget.colors,
                       borderRadius: widget.borderRadius,
                       glowWidth: widget.glowWidth,
-                      blure: widget.blure,
+                      blure: widget.blur,
                     ),
                     child: const SizedBox.expand(),
                   ),
@@ -95,10 +136,7 @@ class _GlowPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final rect = Offset.zero & size;
 
-    final RRect roundedRect = RRect.fromRectAndRadius(
-      rect,
-      Radius.circular(borderRadius),
-    );
+    final RRect roundedRect = RRect.fromRectAndRadius(rect, Radius.circular(borderRadius));
 
     final stops = List.generate(colors.length + 1, (i) => i / (colors.length));
 
