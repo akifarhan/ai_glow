@@ -25,15 +25,15 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Color> _colorsIOS = [
-      Color(0xFFD166D3),
-      Color(0xFFF7BF69),
-      Color(0xFFE2A0CB),
-      Color(0xFFC982F7),
-      Color(0xFFC580F3),
-      Color(0xFFF1BFEB),
-      Color(0xFF939AF9),
-      Color(0xFFA97DF5),
+    final List<Color> colorsIOS = [
+      const Color(0xFFD166D3),
+      const Color(0xFFF7BF69),
+      const Color(0xFFE2A0CB),
+      const Color(0xFFC982F7),
+      const Color(0xFFC580F3),
+      const Color(0xFFF1BFEB),
+      const Color(0xFF939AF9),
+      const Color(0xFFA97DF5),
     ];
 
     return Scaffold(
@@ -52,15 +52,14 @@ class MyHomePage extends StatelessWidget {
                   height: 180,
                   borderRadius: 32,
                   glowWidth: 5,
-                  blure: 7,
+                  blur: 7,
                   colors: const [Colors.blue, Colors.transparent],
                   child: Container(
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 11, 11, 11),
                       borderRadius: BorderRadius.circular(32),
-                      border: Border.all(
-                          color: const Color.fromARGB(60, 84, 23, 169)),
+                      border: Border.all(color: const Color.fromARGB(60, 84, 23, 169)),
                     ),
                     child: const Text(
                       "InnerAiGlow 1",
@@ -73,8 +72,8 @@ class MyHomePage extends StatelessWidget {
                   height: 180,
                   borderRadius: 32,
                   glowWidth: 5,
-                  blure: 7,
-                  colors: _colorsIOS,
+                  blur: 7,
+                  colors: colorsIOS,
                   child: Container(
                     width: 300,
                     height: 180,
@@ -82,8 +81,7 @@ class MyHomePage extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 11, 11, 11),
                       borderRadius: BorderRadius.circular(32),
-                      border: Border.all(
-                          color: const Color.fromARGB(60, 84, 23, 169)),
+                      border: Border.all(color: const Color.fromARGB(60, 84, 23, 169)),
                     ),
                     child: const Text(
                       "InnerAiGlow 2",
@@ -105,15 +103,14 @@ class MyHomePage extends StatelessWidget {
                   height: 180,
                   borderRadius: 32,
                   glowWidth: 5,
-                  blure: 7,
+                  blur: 7,
                   colors: const [Colors.blue, Colors.transparent],
                   child: Container(
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 11, 11, 11),
                       borderRadius: BorderRadius.circular(32),
-                      border: Border.all(
-                          color: const Color.fromARGB(60, 84, 23, 169)),
+                      border: Border.all(color: const Color.fromARGB(60, 84, 23, 169)),
                     ),
                     child: const Text(
                       "OuterAiGlow 1",
@@ -126,15 +123,14 @@ class MyHomePage extends StatelessWidget {
                   height: 180,
                   borderRadius: 32,
                   glowWidth: 5,
-                  blure: 7,
-                  colors: _colorsIOS,
+                  blur: 7,
+                  colors: colorsIOS,
                   child: Container(
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 11, 11, 11),
                       borderRadius: BorderRadius.circular(32),
-                      border: Border.all(
-                          color: const Color.fromARGB(60, 84, 23, 169)),
+                      border: Border.all(color: const Color.fromARGB(60, 84, 23, 169)),
                     ),
                     child: const Text(
                       "OuterAiGlow 2",
