@@ -38,7 +38,6 @@ InnerAiGlowing(
   glowWidth: 3,
   blur: 8,
   colors: [Colors.blue, Colors.purple, Colors.pink],
-  aiMode: AiMode.adaptive, // enables on-device AI adjustments
 )
 ```
 
@@ -53,7 +52,6 @@ OuterAiGlow(
   glowWidth: 3,
   blur: 8,
   colors: [Colors.cyan, Colors.indigo, Colors.teal],
-  aiMode: AiMode.contextual, // uses Apple Intelligence for glow tuning
 )
 ```
 
