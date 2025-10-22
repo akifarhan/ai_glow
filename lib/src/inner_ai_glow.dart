@@ -105,7 +105,7 @@ class _InnerAiGlowingState extends State<InnerAiGlowing> with SingleTickerProvid
                       colors: widget.colors,
                       borderRadius: widget.borderRadius,
                       glowWidth: widget.glowWidth,
-                      blure: widget.blur,
+                      blur: widget.blur,
                     ),
                     child: const SizedBox.expand(),
                   ),
@@ -122,14 +122,14 @@ class _GlowPainter extends CustomPainter {
   final List<Color> colors;
   final double borderRadius;
   final double glowWidth;
-  final double blure;
+  final double blur;
 
   _GlowPainter({
     required this.animationValue,
     required this.colors,
     required this.borderRadius,
     required this.glowWidth,
-    required this.blure,
+    required this.blur,
   });
 
   @override
@@ -153,7 +153,7 @@ class _GlowPainter extends CustomPainter {
           ..shader = sweepGradient.createShader(rect.inflate(glowWidth))
           ..style = PaintingStyle.stroke
           ..strokeWidth = glowWidth
-          ..maskFilter = MaskFilter.blur(BlurStyle.normal, blure);
+          ..maskFilter = MaskFilter.blur(BlurStyle.normal, blur);
 
     canvas.drawRRect(roundedRect.deflate(1.0), glowStrokePaint);
   }
