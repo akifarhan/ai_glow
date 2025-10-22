@@ -96,19 +96,21 @@ class _InnerAiGlowingState extends State<InnerAiGlowing> with SingleTickerProvid
           alignment: Alignment.center,
           children: [
             widget.child,
-            AnimatedBuilder(
-              animation: _controller,
-              builder:
-                  (_, __) => CustomPaint(
-                    painter: _GlowPainter(
-                      animationValue: _controller.value,
-                      colors: widget.colors,
-                      borderRadius: widget.borderRadius,
-                      glowWidth: widget.glowWidth,
-                      blur: widget.blur,
+            IgnorePointer(
+              child: AnimatedBuilder(
+                animation: _controller,
+                builder:
+                    (_, __) => CustomPaint(
+                      painter: _GlowPainter(
+                        animationValue: _controller.value,
+                        colors: widget.colors,
+                        borderRadius: widget.borderRadius,
+                        glowWidth: widget.glowWidth,
+                        blur: widget.blur,
+                      ),
+                      child: const SizedBox.expand(),
                     ),
-                    child: const SizedBox.expand(),
-                  ),
+              ),
             ),
           ],
         ),
